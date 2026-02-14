@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foodify | Order</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (!localStorage.getItem("foodifyLoggedIn")) {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+
+<body class="order-body">
+
+<nav class="navbar">
+    <h1 class="logo">Foodify</h1>
+    <ul class="nav-links">
+        <li onclick="goHome()">Home</li>
+        <li>Orders</li>
+        <li onclick="logout()">Logout</li>
+    </ul>
+</nav>
+
+<section class="order-section">
+    <h2>Menu 🍽️</h2>
+
+    <div class="menu-tabs">
+        <div class="menu-tab active" onclick="openMenu('main', this)">🥘 Main Course</div>
+        <div class="menu-tab" onclick="openMenu('thali', this)">🍛 Thali</div>
+        <div class="menu-tab" onclick="openMenu('icecream', this)">🍨 Ice Cream</div>
+        <div class="menu-tab" onclick="openMenu('pizza', this)">🍕 Pizza</div>
+        <div class="menu-tab" onclick="openMenu('burger', this)">🍔 Burger</div>
+        <div class="menu-tab" onclick="openMenu('biryani', this)">🍚 Biryani</div>
+        <div class="menu-tab" onclick="openMenu('cake', this)"> 🎂 Cake</div>
+    </div>
+
+    <div class="menu-container">
+      
+        <div class="menu-items active" id="main">
+            <div class="expandable">
+                <div class="item-header">
+                    🍗 Chicken Curry
+                    <button onclick="toggleItem('chickenOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="chickenOptions">
+                    <div class="sub-row">Half - ₹149 <button onclick="addToCart('Chicken Curry Half', 149)">Add</button></div>
+                    <div class="sub-row">Full - ₹249 <button onclick="addToCart('Chicken Curry Full', 249)">Add</button></div>
+                </div>
+            </div>
+            
+            <div class="expandable">
+                <div class="item-header">
+                    🍖 Mutton Masala
+                    <button onclick="toggleItem('muttonOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="muttonOptions">
+                    <div class="sub-row">Half - ₹199 <button onclick="addToCart('Mutton Masala Half', 199)">Add</button></div>
+                    <div class="sub-row">Full - ₹299 <button onclick="addToCart('Mutton Masala Full', 299)">Add</button></div>
+                </div>
+            </div>
+
+            <div class="expandable">
+                <div class="item-header">
+                    🍖 Butter Chicken
+                    <button onclick="toggleItem('butterOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="butterOptions">
+                    <div class="sub-row">Half - ₹199 <button onclick="addToCart('Butter Chicken Half', 199)">Add</button></div>
+                    <div class="sub-row">Full - ₹299 <button onclick="addToCart('Butter Chicken Full', 299)">Add</button></div>
+                </div>
+            </div>
+
+            <div class="list-item">
+              🫓 Roti - ₹10
+              <button onclick="addToCart('Roti', 15)">Add</button>
+            </div>
+
+            <div class="list-item">
+              🫓 Naan - ₹25
+              <button onclick="addToCart('Naan', 25)">Add</button>
+            </div>
+        </div>
+
+
+        <div class="menu-items active" id="thali">
+            
+            <div class="list-item">
+            Special Thali - ₹280
+              <button onclick="addToCart('Special Thali', 280)">Add</button>
+            </div>
+
+            <div class="expandable">
+                <div class="item-header">
+                    Veg Thali 
+                    <button onclick="toggleItem('vegthaliOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="vegthaliOptions">
+                    <div class="sub-row">Half - ₹149 <button onclick="addToCart('Veg Thali Half', 149)">Add</button></div>
+                    <div class="sub-row">Full - ₹249 <button onclick="addToCart('Veg Thali Full', 249)">Add</button></div>
+                </div>
+            </div>
+
+            <div class="expandable">
+                <div class="item-header">
+                    Non-Veg Thali [chicken] 
+                    <button onclick="toggleItem('nonvegthaliOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="nonvegthaliOptions">
+                    <div class="sub-row">Half - ₹149 <button onclick="addToCart('Non-Veg Thali Half', 149)">Add</button></div>
+                    <div class="sub-row">Full - ₹249 <button onclick="addToCart('Non-Veg Thali Full', 249)">Add</button></div>
+                </div>
+            </div>
+
+            <div class="expandable">
+                <div class="item-header">
+                    Non-Veg Thali [egg] 
+                    <button onclick="toggleItem('nonvegthalieggOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="nonvegthalieggOptions">
+                    <div class="sub-row">Half - ₹149 <button onclick="addToCart('Non-Veg Thali Half', 149)">Add</button></div>
+                    <div class="sub-row">Full - ₹249 <button onclick="addToCart('Non-Veg Thali Full', 249)">Add</button></div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="menu-items" id="icecream">
+            <div class="expandable">
+                <div class="item-header">
+                    1) Chocolate Ice Cream
+                    <button onclick="toggleItem('chocolateOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="chocolateOptions">
+                    <div class="sub-row">Single Scoop - ₹79 <button onclick="addToCart('Chocolate Ice Cream Single', 79)">Add</button></div>
+                    <div class="sub-row"> Family pack - ₹201 <button onclick="addToCart('Chocolate Ice Cream Double', 139)">Add</button></div>
+                </div>
+            </div>
+            
+            <div class="expandable">
+                <div class="item-header">
+                    2) Vanilla Ice Cream
+                    <button onclick="toggleItem('vanillaOptions')">Add</button>
+                </div>
+                <div class="sub-options" id="vanillaOptions">
+                    <div class="sub-row">Single Scoop - ₹79 <button onclick="addToCart('Vanilla Ice Cream Single', 79)">Add</button></div>
+                    <div class="sub-row">Family Scoop - ₹210 <button onclick="addToCart('Vanilla Ice Cream Double', 139)">Add</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-items" id="pizza">
+            <div class="list-item">
+                🍕 Margherita - ₹199
+                <button onclick="addToCart('Margherita Pizza', 199)">Add</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cart-box">
+        <h3>🛒 Cart</h3>
+        <div id="cartItems"></div>
+        <h3>Total: ₹<span id="total">0</span></h3>
+    </div>
+
+    <button class="order-btn pay-btn" onclick="goPayment()">Proceed to Payment</button>
+
+</section>
+
+<script>
+let cart = {};
+let total = 0;
+
+function openMenu(id, element) {
+    // Hide all sections
+    document.querySelectorAll(".menu-items").forEach(m => {
+        m.classList.remove("active");
+        m.style.display = "none"; // Force hide to prevent vertical stacking
+    });
+    
+    // Remove active state from tabs
+    document.querySelectorAll(".menu-tab").forEach(t => t.classList.remove("active"));
+    
+    // Show the selected section
+    const selected = document.getElementById(id);
+    if (selected) {
+        selected.classList.add("active");
+        selected.style.display = "block"; // Force block display for horizontal rows
+    }
+    
+    if (element) element.classList.add("active");
+}
+
+function toggleItem(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.classList.toggle("active");
+    }
+}
+
+function addToCart(item, price) {
+    if (cart[item]) {
+        cart[item].qty++;
+    } else {
+        cart[item] = { price: price, qty: 1 };
+    }
+    updateCart();
+}
+
+function updateCart() {
+    const cartDiv = document.getElementById("cartItems");
+    cartDiv.innerHTML = "";
+    total = 0;
+
+    for (let item in cart) {
+        let itemTotal = cart[item].price * cart[item].qty;
+        total += itemTotal;
+
+        cartDiv.innerHTML += `
+            <div class="cart-item">
+                ${item} × ${cart[item].qty}
+                <span>₹${itemTotal}</span>
+            </div>
+        `;
+    }
+    document.getElementById("total").textContent = total;
+}
+
+function goPayment() {
+    if (total === 0) {
+        alert("🛒 Cart is empty");
+        return;
+    }
+    localStorage.setItem("foodifyTotal", total);
+    window.location.href = "payment.html";
+}
+
+function goHome() { window.location.href = "index.html"; }
+function logout() {
+    localStorage.removeItem("foodifyLoggedIn");
+    window.location.href = "login.html";
+}
+
+// Ensure the first tab is visible on load
+document.addEventListener("DOMContentLoaded", () => {
+    openMenu('main', document.querySelector('.menu-tab.active'));
+});
+</script>
+
+</body>
+</html>

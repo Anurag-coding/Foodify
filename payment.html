@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodify | Payment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="payment-body">
+
+<div class="payment-box">
+
+  <h2>💳 Payment</h2>
+  <p>Total Amount: ₹<strong id="payAmount"></strong></p>
+
+  <!-- PAYMENT TABS -->
+  <div class="payment-tabs">
+    <button onclick="showPayment('upi')">UPI</button>
+    <button onclick="showPayment('card')">Card</button>
+    <button onclick="showPayment('net')">Net Banking</button>
+  </div>
+
+  <!-- UPI -->
+  <div class="payment-method active" id="upi">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=foodify@upi" alt="QR Code">
+    <p>Scan QR or enter UPI ID</p>
+    <input type="text" placeholder="example@upi">
+    <button onclick="payNow()">Pay via UPI</button>
+  </div>
+
+  <!-- CARD -->
+  <div class="payment-method" id="card">
+    <input type="text" placeholder="Card Number">
+    <input type="text" placeholder="Expiry Date">
+    <input type="text" placeholder="CVV">
+    <button onclick="payNow()">Pay via Card</button>
+  </div>
+
+  <!-- NET BANKING -->
+  <div class="payment-method" id="net">
+    <select>
+      <option>Select Bank</option>
+      <option>SBI</option>
+      <option>HDFC</option>
+      <option>ICICI</option>
+      <option>Axis Bank</option>
+    </select>
+    <button onclick="payNow()">Pay via Net Banking</button>
+  </div>
+
+  <span class="back-home" onclick="goOrders()">← Back to Orders</span>
+
+</div>
+
+<script>
+/* Load Total */
+document.getElementById("payAmount").textContent =
+  localStorage.getItem("foodifyTotal") || 0;
+
+/* Switch Payment Tabs */
+function showPayment(type) {
+  document.querySelectorAll(".payment-method").forEach(m => {
+    m.classList.remove("active");
+  });
+  document.getElementById(type).classList.add("active");
+}
+
+/* Fake Payment Success */
+function payNow() {
+  const box = document.querySelector(".payment-box");
+  box.classList.add("closing");
+
+  setTimeout(() => {
+    alert("🎉 Payment Successful!\nYour order is confirmed.");
+    localStorage.removeItem("foodifyTotal");
+    window.location.href = "index.html";
+  }, 600);
+}
+
+function goOrders() {
+  window.location.href = "order.html";
+}
+</script>
+
+</body>
+</html>

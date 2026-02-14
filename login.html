@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodify | Sign In</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+  <div class="login-box">
+
+    <img src="logo.png" alt="Foodify Logo" class="login-logo">
+
+    <h2>Sign In to Foodify 🍔</h2>
+
+    <input type="email" id="loginEmail" placeholder="Enter Email">
+    <input type="password" id="loginPassword" placeholder="Enter Password">
+
+    <button class="login-btn" onclick="loginUser()"> Sign in </button>
+
+    <p class="signup-text">
+      New here?
+      <span onclick="showSignup()">Create Account</span>
+    </p>
+    <a href="index.html" class="back-home">← Back to Home</a>
+
+
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div class="signup-popup" id="signupPopup">
+    <div class="signup-box">
+
+      <h2>Create Account 🍕</h2>
+
+      <input type="text" id="signupName" placeholder="Full Name">
+      <input type="email" id="signupEmail" placeholder="Email">
+      <input type="password" id="signupPassword" placeholder="Password">
+
+      <button class="login-btn" onclick="signupUser()">Sign Up</button>
+
+      <p style="margin-top:15px; cursor:pointer;" onclick="closeSignup()">Cancel</p>
+
+    </div>
+  </div>
+
+<script>
+  // Check if user exists on page load
+  window.onload = function() {
+    const savedUser = localStorage.getItem("foodifyUser");
+    if (!savedUser) {
+      showSignup();   // Force signup first time
+    }
+  };
+
+  function signupUser() {
+    const name = document.getElementById("signupName").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+
+    if (!name || !email || !password) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    const user = { name, email, password };
+    localStorage.setItem("foodifyUser", JSON.stringify(user));
+
+    alert("Account Created Successfully! Please Sign In.");
+    closeSignup();
+  }
+
+  function loginUser() {
+    const savedUser = JSON.parse(localStorage.getItem("foodifyUser"));
+
+    if (!savedUser) {
+      alert("You must create an account first!");
+      showSignup();
+      return;
+    }
+
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    if (email === savedUser.email && password === savedUser.password) {
+      localStorage.setItem("foodifyLoggedIn", "true");
+      window.location.href = "order.html";
+    } else {
+      alert("Invalid Email or Password!");
+    }
+  }
+
+  function showSignup() {
+    document.getElementById("signupPopup").classList.add("show");
+  }
+
+  function closeSignup() {
+    document.getElementById("signupPopup").classList.remove("show");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,893 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY DEFAULT ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  color: #333;
+}
+
+/* ================= HERO BACKGROUND ================= */
+.hero {
+  background: linear-gradient(to bottom, #d4bf59, #351c1c);
+  color: white;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #c44d1b, #351c1c);
+  color: white;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+/* ================= LOGO AREA ================= */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  width: 100px;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+}
+
+.logo-text-box h2 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.logo-text-box p {
+  font-size: 25px;
+  opacity: 0.9;
+}
+
+/* ================= NAV BUTTONS ================= */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: #c2b985;
+  color: black;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #c16e4b;
+  transform: scale(1.05);
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Logo beside title */
+.title-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+
+.order-btn {
+  background: #5a0f0f;
+  color: white;
+  border: none;
+  padding: 14px 34px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.order-btn:hover {
+  background: #7a1616;
+  transform: scale(1.05);
+}
+
+/* ================= BELOW HERO ================= */
+section:not(.hero):not(.order-section) {
+  background: linear-gradient(to bottom, #c44d1b, #d8cece);
+  color: white;
+}
+
+
+/* ================= FLOATING SPECIAL IMAGES ================= */
+.specials-row {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.special-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.specials-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.special-item {
+  text-align: center;
+}
+
+/* Image */
+.special-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+.special-name {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 700;   /* Makes it bold */
+  color: rgb(232, 238, 240);
+  letter-spacing: 0.5px;
+}
+
+
+/* Button Hidden Initially */
+.special-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4d5a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.4s ease;
+}
+
+/* Hover Effects */
+.special-item:hover .special-img {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.special-item:hover .special-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button Hover */
+.special-btn:hover {
+  background: #ff2e3f;
+  transform: scale(1.05);
+}
+
+.special-item {
+  display: flex;
+  flex-direction: column;   /* Stack vertically */
+  align-items: center;      /* Center horizontally */
+}
+
+
+
+.special-img:nth-child(1) { animation-delay: 0s; }
+.special-img:nth-child(2) { animation-delay: 0.4s; }
+.special-img:nth-child(3) { animation-delay: 0.8s; }
+.special-img:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== POPULAR SECTION ===== */
+
+.gallery-section {
+  padding: 60px 30px;
+  text-align: center;
+  background: #745454;
+  color: white;
+}
+
+.popular-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* Responsive Grid */
+.popular-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Card */
+.popular-item {
+  text-align: center;
+}
+
+/* Image Box */
+.image-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* Perfect square */
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Image */
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.4s ease;
+}
+
+/* Hover */
+.popular-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Name */
+.popular-item p {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 20px;
+  color: rgb(25, 24, 24);
+}
+
+/* ===== POPULAR GRID FIX ===== */
+.popular-row {
+  display: grid;
+  grid-template-columns: repeat(6, 180px); /* 6 fixed size columns */
+  justify-content: center;
+  gap: 30px;
+}
+
+
+/* Card */
+.popular-item {
+  text-align: center;
+}
+
+/* Image */
+.popular-item img {
+  width: 170px;
+  height: 170px;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+/* Hover */
+.popular-item img:hover {
+  transform: translateY(-8px);
+}
+
+
+/* ===== WHY FOODIFY SECTION ===== */
+.why-section {
+  padding: 70px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+.why-title {
+  font-size: 30px;
+  margin-bottom: 50px;
+  color: white;
+}
+
+/* Container */
+.why-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.why-card {
+  background: white;
+  width: 260px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(118, 85, 85, 0.15);
+  transition: 0.4s ease;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  color: #333;   /* FIXED TEXT COLOR */
+}
+
+
+/* Stagger animation */
+.why-card:nth-child(1) { animation-delay: 0.2s; }
+.why-card:nth-child(2) { animation-delay: 0.4s; }
+.why-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Hover effect */
+.why-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+  background: #2c2c2c;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-text {
+  color: #ff4d5a;   /* Different color */
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+
+
+/* ================= LOGIN PAGE ================= */
+
+.login-body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #b97a7a, #8c6b6b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* MAIN CONTAINER */
+.login-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 40px;
+}
+
+/* LOGIN BOX */
+.login-box {
+  background: white;
+  padding: 40px 35px;
+  width: 360px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  animation: fadeIn 0.8s ease;
+}
+
+/* LOGO */
+.login-logo {
+  width: 90px;
+  margin-bottom: 15px;
+}
+
+/* TITLE */
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* INPUT FIELDS */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #ff4d5a;
+  box-shadow: 0 0 0 3px rgba(255,77,90,0.25);
+}
+
+/* BUTTON */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d5a;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #ff2e3f;
+  transform: scale(1.03);
+}
+
+/* SIGNUP TEXT */
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-text span {
+  color: #ff4d5a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.signup-text span:hover {
+  text-decoration: underline;
+}
+
+/* RIGHT SIDE IMAGE */
+.login-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-image img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+  animation: fadeIn 1s ease;
+}
+
+/* ================= SIGNUP POPUP ================= */
+
+.signup-popup {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: flex-end;
+  transition: 0.4s ease;
+  z-index: 999;
+}
+
+.signup-popup.show {
+  right: 0;
+}
+
+.signup-box {
+  width: 380px;
+  height: 100%;
+  background: white;
+  padding: 40px 30px;
+  animation: slideFromRight 0.4s ease forwards;
+}
+
+.signup-box h2 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* CLOSE BUTTON */
+.close-signup {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .login-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .login-image img {
+    max-width: 280px;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideFromRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Prevent white strip */
+html, body {
+  overflow-x: hidden;
+}
+
+.back-home {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.back-home:hover {
+  color: #ff4d5a;
+  text-decoration: underline;
+}
+
+
+
+/* ================= ORDER PAGE ONLY ================= */
+.order-body {
+  background: linear-gradient(135deg, #ffecd2, #334e94);
+}
+
+/* Red navbar only for order page */
+.order-body .navbar {
+  background: #615959;
+}
+
+/* ================= ORDER SECTION ================= */
+.order-section {
+  padding: 30px;
+  animation: fadeIn 0.8s ease-in-out;
+  color: #000;
+}
+
+/* MENU TABS */
+.menu-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.menu-tab {
+  padding: 10px 20px;
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  color: #000;
+}
+
+.menu-tab.active {
+  background: #ff4d4d;
+  color: white;
+}
+
+/* MENU GRID */
+.menu-items {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.menu-items.active {
+  display: grid;
+  animation: slideUp 0.5s ease;
+}
+
+/* MENU CARD */
+.menu-item {
+  background: #ffffff;
+  padding: 18px 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #000; /* FORCE TEXT BLACK */
+  transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+}
+
+/* ADD BUTTON */
+.menu-item button {
+  background: #ff4d4d;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-item button:hover {
+  background: #ff1a1a;
+  transform: scale(1.1);
+}
+
+/* CART */
+.cart-box {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  color: #000;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+
+/* PAYMENT BUTTON */
+.pay-btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: none;
+  background: #28a745;
+  color: white;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pay-btn:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+/* ================= ORDER PROGRESS ================= */
+
+.order-progress {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.order-progress::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background: #ddd;
+  z-index: 0;
+}
+
+.progress-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-step span {
+  font-size: 30px;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: 0.4s ease;
+}
+
+.progress-step p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.progress-step.active span {
+  background: #28a745;
+  color: white;
+  box-shadow: 0 0 15px rgba(40,167,69,0.7);
+}
+
+/* Remove grid for list style */
+#main.menu-items.active {
+  display: grid;
+  animation: slideDown 0.4s ease;
+}
+
+/* Simple list style */
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 16px;
+  background: transparent;
+}
+
+/* Remove card look */
+.list-item button {
+  background: #ff4d4d;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Expandable item */
+.expandable {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-options {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding-left: 15px;
+}
+
+.sub-options.active {
+  max-height: 400px;
+  margin-top: 8px;
+}
+
+.sub-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 15px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Fix expandable header Add button */
+.item-header button {
+  background: #ff4d4d;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.item-header button:hover {
+  background: #ff1a1a;
+  transform: scale(1.1);
+}
+
+
+.sub-row button {
+  background: #ff4d4d;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s ease;
+}
+
+.sub-row button:hover {
+  background: #ff1a1a;
+  transform: scale(1.05);
+}
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ================= GLOBAL ANIMATIONS ================= */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from { transform: translateY(40px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
